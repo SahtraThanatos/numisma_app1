@@ -1,25 +1,45 @@
-import logo from './logo.svg';
+// src/App.js
+import React, { useState, useEffect } from 'react';
+import CoinList from './components/CoinList';
+import CoinForm from './components/CoinForm';
 import './App.css';
 
-function App() {
+const App = () => {
+  const [coins, setCoins] = useState([]);
+  const [addingCoin, setAddingCoin] = useState(false);
+
+  useEffect(() => {
+    const savedCoins = JSON.parse(localStorage.getItem('coins')) || [];
+    setCoins(savedCoins);
+  }, []);
+
+  const addCoin = (newCoin) => {
+    const updatedCoins = [...coins, { ...newCoin, id: coins.length + 1 }];
+    setCoins(updatedCoins);
+    localStorage.setItem('coins', JSON.stringify(updatedCoins));
+    setAddingCoin(false);
+  };
+
+  const removeCoin = (id) => {
+    const updatedCoins = coins.filter((coin) => coin.id !== id);
+    setCoins(updatedCoins);
+    localStorage.setItem('coins', JSON.stringify(updatedCoins));
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div>
+      <header>
+        <h1>Каталог монет</h1>
       </header>
+      <div className="coin-container">
+        {addingCoin && <CoinForm addCoin={addCoin} setAddingCoin={setAddingCoin} />}
+        <button className="add-coin-button" onClick={() => setAddingCoin(!addingCoin)}>
+          {addingCoin ? 'Сховати форму' : 'Додати монету'}
+        </button>
+        <CoinList coins={coins} removeCoin={removeCoin} />
+      </div>
     </div>
   );
-}
+};
 
 export default App;
