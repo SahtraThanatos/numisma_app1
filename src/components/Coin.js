@@ -1,4 +1,3 @@
-// src/components/Coin.js
 import React from 'react';
 
 const Coin = ({ coin }) => {

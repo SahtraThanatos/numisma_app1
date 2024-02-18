@@ -1,4 +1,3 @@
-// src/components/CoinForm.js
 import React, { useState } from 'react';
 
 const CoinForm = ({ addCoin, setAddingCoin }) => {

@@ -1,4 +1,3 @@
-// src/components/CoinList.js
 import React from 'react';
 
 const CoinList = ({ coins, removeCoin }) => {
