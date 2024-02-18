@@ -78,7 +78,7 @@ h1 {
   flex-wrap: wrap; /* Перехід на новий рядок */
   justify-content: flex-start;
   margin: 0 -10px;
-  background-color: #6ca1c5;
+  background-color: #ffffff;
 }
 
 .coin-item {
