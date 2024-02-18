@@ -5,7 +5,7 @@ body {
 }
 
 header {
-  background-color: #3498db;
+  background-color: #0c2a3f;
   padding: 20px;
   text-align: center;
   color: white;
@@ -18,9 +18,15 @@ h1 {
 .coin-container {
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
   gap: 20px;
   justify-content: center;
+  align-items: center;
   padding: 20px;
+}
+
+.add-coin-button-container {
+  margin-bottom: 20px;
 }
 
 .coin-card {
@@ -32,18 +38,101 @@ h1 {
 }
 
 .coin-card img {
-  width: 100%;
-  max-width: 100%; /* Зменшити розмір фото монети */
+  width: 50%;
+  max-width: 50%; /* Зменшити розмір фото монети */
   height: auto;
   object-fit: cover;
 }
 
-.add-coin-button {
+.add-coin-button,
+.create-coin-button {
   margin-top: 20px;
   padding: 10px;
   background-color: #3498db;
   color: white;
   border: none;
   border-radius: 4px;
+  cursor: pointer;
+}
+.create-coin-button {
+  /* Додаткові стилі для кнопки "Створити запис" */
+  margin-top: 20px;
+}
+.delete-coin-button {
+  margin-top: 5px;
+  padding: 5px;
+  color: white;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  background-color: #f44336; /* Змініть кольори, якщо необхідно */
+}
+
+
+
+/* src/App.css */
+.coin-image {
+  width: 150px; /* Задайте бажаний розмір для ширини */
+  height: 150px; /* Задайте бажаний розмір для висоти */
+  object-fit: cover; /* Адаптація розміру та збереження пропорцій для зображення */
+  object-position: center; /* Центрування зображення */
+}
+
+/* src/App.css */
+.coin-list {
+  display: flex;
+  flex-wrap: wrap; /* Заворот рядка для переходу на новий рядок */
+  justify-content: flex-start;
+  margin: 0 -10px;
+  background-color: #6ca1c5;
+}
+
+.coin-item {
+  flex: 0 0 calc(25% - 20px); /* Розподіл елементів на 25% ширини з врахуванням відступів */
+  margin: 10px; /* Відступ між елементами */
+  text-align: center; /* Центрування тексту */
+}
+
+
+/* Додатковий стиль для року випуску */
+.coin-year {
+  margin-top: 5px; /* Змініть значення відступу за потребою */
+}
+
+/* src/App.css */
+.search-form {
+  margin: 20px 0;
+}
+
+.search-form input {
+  margin-right: 10px;
+}
+
+.search-form button {
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* src/App.css */
+.search-form button {
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.show-all-coins-button {
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
 }
